@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retail Sales Prediction</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+        .card {
+            margin-top: 50px;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .predict-btn {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card">
+                <h3 class="text-center mb-4">Retail Sales Prediction</h3>
+
+                <form method="POST" action="/predict">
+
+                    <label>Year</label>
+                    <input type="number" name="year" class="form-control mb-3" required>
+
+                    <label>Month</label>
+                    <input type="number" name="month" class="form-control mb-3" required>
+
+                    <label>Supplier</label>
+                    <input type="text" name="supplier" class="form-control mb-3" required>
+
+                    <label>Item Type</label>
+                    <input type="text" name="item_type" class="form-control mb-3" required>
+
+                    <label>Retail Transfers</label>
+                    <input type="number" name="retail_transfers" class="form-control mb-3" required>
+
+                    <label>Warehouse Sales</label>
+                    <input type="number" name="warehouse_sales" class="form-control mb-3" required>
+
+                    <button class="btn btn-primary predict-btn">Predict Sales</button>
+                </form>
+
+                {% if predicted_sales %}
+                    <div class="alert alert-success text-center mt-4">
+                        <h5>Predicted Retail Sales:</h5>
+                        <h3><b>{{ predicted_sales }}</b></h3>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

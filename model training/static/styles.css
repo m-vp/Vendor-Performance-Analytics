@@ -1,0 +1,7 @@
+body {
+    background: linear-gradient(120deg, #74ebd5, #ACB6E5);
+}
+.card {
+    background: #ffffffd9;
+    backdrop-filter: blur(8px);
+}
